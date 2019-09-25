@@ -11,6 +11,18 @@ let map = new mapboxgl.Map(mapOptions);
 
 // Create a new marker
 
+// create a pop-up
+let popup = new mapboxgl.Popup(
+    {
+        offset:25
+    }
+);
+// what the popup should show
+popup.setHTML(`<h3>Singapore</h3><p>Sunny island set in the sea`);
+
+// create the marker and set the popup to use
 let marker = new mapboxgl.Marker()
     .setLngLat([103.8198,1.3521]) // set the lng and lat of the marker
-    .addTo(map); // and add it to the map object we just created
+    .setPopup(popup)
+    .addTo(map)  // and add it to the map object we just created
+    

@@ -3,3 +3,14 @@
     width: 100%;
     position: absolute;
 }
+
+.mapboxgl-popup {
+    width:300px;
+
+}
+
+.mapboxgl-popup-content {
+    background-color:aliceblue;
+    text-align:center;
+    font-family:Verdana;
+}
