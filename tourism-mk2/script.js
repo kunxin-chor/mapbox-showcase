@@ -1,4 +1,5 @@
 /* global mapboxgl */
+/* global $ */
 
 let places = [
     {
@@ -28,6 +29,7 @@ let map = new mapboxgl.Map({
     zoom: 11
 })
 
+// creating the markers
 for (let each_place of places)
 {
     console.log(each_place);
@@ -54,5 +56,10 @@ for (let each_place of places)
       Alternatively...
       m.setPopup(p).addTo(map)
     */
-    
+}
+
+// create the text links
+for (let each_place of places)
+{
+    $("#location-list").append($(`<li>${each_place.name}</li>`))
 }
