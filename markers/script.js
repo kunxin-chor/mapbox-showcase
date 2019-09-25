@@ -26,3 +26,20 @@ let marker = new mapboxgl.Marker()
     .setPopup(popup)
     .addTo(map)  // and add it to the map object we just created
     
+
+// show a second marker
+// create a pop-up
+let changi_popup = new mapboxgl.Popup(
+    {
+        offset:25
+    }
+);
+// what the popup should show
+changi_popup.setHTML(`<h3>Singapore Changi Airport</h3><p>Best airport in the world`);
+
+// create the marker and set the popup to use
+let changi_marker = new mapboxgl.Marker()
+    .setLngLat([103.9915,1.3644]) // set the lng and lat of the marker
+    .setPopup(changi_popup)
+    .addTo(map)  // and add it to the map object we just created
+    
