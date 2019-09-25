@@ -9,4 +9,8 @@ let mapOptions = {
 };
 let map = new mapboxgl.Map(mapOptions);
 
-// 
+// Create a new marker
+
+let marker = new mapboxgl.Marker()
+    .setLngLat([103.8198,1.3521]) // set the lng and lat of the marker
+    .addTo(map); // and add it to the map object we just created
