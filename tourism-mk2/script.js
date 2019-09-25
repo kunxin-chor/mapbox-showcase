@@ -11,7 +11,7 @@ let places = [
         'position': [103.7930, 1.4043 ]
     },
     {
-        'name':'Changi Village',
+        'name':'Changi Airport',
         'position': [103.983208, 1.345010]
     },
     {
@@ -61,5 +61,15 @@ for (let each_place of places)
 // create the text links
 for (let each_place of places)
 {
-    $("#location-list").append($(`<li>${each_place.name}</li>`))
+    // using closures to show the place name when we clicked on it
+    let list_item = $(`<li>${each_place.name}</li>`)
+                    .click(function(){
+                        map.flyTo({
+                            "center": each_place.position,
+                            "zoom":13
+                        })
+                    });
+                    
+    $("#location-list").append(list_item);
+    
 }
