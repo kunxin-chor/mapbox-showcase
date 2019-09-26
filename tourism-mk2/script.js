@@ -59,17 +59,35 @@ for (let each_place of places)
 }
 
 // create the text links
-for (let each_place of places)
+for (let i=0; i < places.length; i++)
 {
-    // using closures to show the place name when we clicked on it
-    let list_item = $(`<li>${each_place.name}</li>`)
-                    .click(function(){
-                        map.flyTo({
-                            "center": each_place.position,
-                            "zoom":13
-                        })
-                    });
+    // // using closures to show the place name when we clicked on it
+    // let list_item = $(`<li>${each_place.name}</li>`)
+    //                 .click(function(){
+    //                     map.flyTo({
+    //                         "center": each_place.position,
+    //                         "zoom":13
+    //                     })
+    //                 });
+    
+
+    // extract out the current place
+    let current_place = places[i];
                     
-    $("#location-list").append(list_item);
+    // create a list item for the current place and attach its index as a data so
+    // that we can retrieve its index when the user clicked on it
+    $("#location-list").append(
+        $(`<li data-index='${i}'>${current_place.name}</li>`)
+    );
     
 }
+
+// using delegates and jquery data to fly to the user's selected place
+$("#location-list").on('click', 'li', function(){
+    let index = $(this).data('index');
+    let clicked_place = places[index];
+    map.flyTo({
+        "center" : clicked_place.position,
+        "zoom":13
+    })
+} )
